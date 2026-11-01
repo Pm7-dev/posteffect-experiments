@@ -1,0 +1,135 @@
+{
+    "targets": {
+        "swap": {
+            "width": 2,
+            "height": 1
+        },
+        "frame": {
+            "width": 2,
+			"height": 1,
+            "persistent": true
+        }
+    },
+    "passes": [
+        {
+            "vertex_shader": "minecraft:core/screenquad",
+            "fragment_shader": "custom:post/util/interpolation_timer",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "frame"
+                }
+            ],
+            "output": "swap",
+            "uniforms": {
+                "TimerConfig": [
+                    {
+                        "name": "seconds",
+                        "type": "float",
+                        "value": 0.5
+                    }
+                ]
+            }
+        },
+        {
+            "vertex_shader": "minecraft:core/screenquad",
+            "fragment_shader": "minecraft:post/blit",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "swap"
+                }
+            ],
+            "uniforms": {
+                "BlitConfig": [
+                    {
+                        "name": "ColorModulate",
+                        "type": "vec4",
+                        "value": [ 1.0, 1.0, 1.0, 1.0 ]
+                    }
+                ]
+            },
+            "output": "frame"
+        },
+
+
+
+        {
+            "vertex_shader": "minecraft:core/screenquad",
+            "fragment_shader": "custom:post/foxy",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "swap"
+                },
+                {
+                    "sampler_name": "Frame3",
+                    "location": "custom:foxy/frame3",
+                    "width": 692,
+                    "height": 519
+                },
+                {
+                    "sampler_name": "Frame4",
+                    "location": "custom:foxy/frame4",
+                    "width": 692,
+                    "height": 519
+                },
+                {
+                    "sampler_name": "Frame5",
+                    "location": "custom:foxy/frame5",
+                    "width": 692,
+                    "height": 519
+                },
+                {
+                    "sampler_name": "Frame6",
+                    "location": "custom:foxy/frame6",
+                    "width": 692,
+                    "height": 519
+                },
+                {
+                    "sampler_name": "Frame7",
+                    "location": "custom:foxy/frame7",
+                    "width": 692,
+                    "height": 519
+                },
+                {
+                    "sampler_name": "Frame8",
+                    "location": "custom:foxy/frame8",
+                    "width": 692,
+                    "height": 519
+                },
+                {
+                    "sampler_name": "Frame9",
+                    "location": "custom:foxy/frame9",
+                    "width": 692,
+                    "height": 519
+                },
+                {
+                    "sampler_name": "Frame10",
+                    "location": "custom:foxy/frame10",
+                    "width": 692,
+                    "height": 519
+                },
+                {
+                    "sampler_name": "Frame11",
+                    "location": "custom:foxy/frame11",
+                    "width": 692,
+                    "height": 519
+                },
+                {
+                    "sampler_name": "Frame12",
+                    "location": "custom:foxy/frame12",
+                    "width": 692,
+                    "height": 519
+                },
+                {
+                    "sampler_name": "Frame13",
+                    "location": "custom:foxy/frame13",
+                    "width": 692,
+                    "height": 519
+                }
+            ],
+            "output": "minecraft:main"
+        }
+    ]
+}
